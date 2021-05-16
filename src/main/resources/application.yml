@@ -1,0 +1,39 @@
+server: 
+    port: 8443
+
+ssl:
+key-store: classpath:mykeys.jks
+key-store-password: letmein
+key-password: letmein
+
+spring:
+thymeleaf:
+    cache: false
+
+---
+loggin:
+    level:
+    root: INFO
+
+---
+spring:
+    config:
+        active:
+
+            on-profiles: development
+
+logging:
+    level:
+    root: DEBUG
+---
+spring:
+    config:
+        active:
+
+            on-profile: production
+
+logging:
+    path: /temp/
+    file: BookWorm.log
+    level:
+        root: WARN
